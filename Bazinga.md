@@ -5,7 +5,6 @@
 本文的目标是只要高中毕业，具有基本的计算机概念，都能轻松上手的傻瓜版教程。
 // 特别是我这种零基础文科小白
 ```
-root@localhost: 63HQDuZfmh+g
 ## 基础概念篇
 
 1. 我们目前使用的开发语言都是经过封装和优化的，更接近人类语言的存在，所以我们需要：
@@ -85,7 +84,7 @@ root@localhost: 63HQDuZfmh+g
            > ```gem install grpc-tools```
 
     7. 安装mysql
-        1. brew install mysql@5.6
+        1. brew install mysql@5.6 （目前线上环境有5.6和5.7两种instance，装5.7也一样。不过需要自己建my.cnf）
             > 这个功能貌似已经在新版本里被干掉了，需要确认一下是否可以指定安装版本
         2. 重装mysql链接库 mysql2
             > 由于5x和8x的路径不一样，相互又不兼容，所以可能需要重装一遍
@@ -147,6 +146,79 @@ root@localhost: 63HQDuZfmh+g
             ```
             redis-server &
             ```
-2. 各种开发工具
-    0. 目前主流的是用IDEA和VSCode来进行开发
-        0. IDEA
+
+2. 各种开发工具，目前主流的是用IDEA和VSCode来进行开发，也欢迎用其他的
+    0. IDEA
+        0. 直接[官网下载](https://www.jetbrains.com/idea/download/#section=mac)
+        1. 破解方法百度"lan yu"，支持正版从我做起：）
+        2. 安装各种插件，比如"ruby"
+    1. VSCode
+        0. 直接[官网下载](https://code.visualstudio.com/download)
+        1. 安装各种插件，比如"ruby"
+    2. DB工具
+        0. 我直接用的MySql自己的[MySQLWorkbench](https://dev.mysql.com/downloads/workbench/)
+        1. 链接一下本地DB试试，记得改root密码 ：）
+        
+3. 运行容器
+    0. 一般来说有三种方式运行程序
+        0. 本地直接运行
+        1. 虚拟机
+        2. docker
+        
+        三种方式各有优缺点可以自己找资料
+        
+    1. 安装docker
+        0. [官网安装教程](https://docs.docker.com/docker-for-mac/install/)
+        1. 下载普通安装略
+        2. 版本验证
+           ```
+           chen1:llspay chenchen$ docker --version
+           Docker version 18.06.1-ce, build e68fc7a
+           chen1:llspay chenchen$ docker-compose --version
+           docker-compose version 1.22.0, build f46880f
+           chen1:llspay chenchen$ docker-machine --version
+           docker-machine version 0.15.0, build b48dc28d
+        3. 然后在状态栏小鲸鱼里面装Kubernetes
+
+## 导入项目
+
+0. 找包括@yuan.he和@ben在内的各位大佬帮忙添加权限，包括而不仅限于
+    0. llspay
+    1. protos
+    2. googleapis
+1. 把llspay checkout 到本地
+    ```git clone git@git.llsapp.com:backend/llspay.git```
+2. 导入IDE/用IDE打开
+3. 进入llspay的项目目录，修改里面的配置文件
+   * 把/config one down dir里的*.yml.example复制一份
+   * 然后把副本都命名成*.yml
+     > app.yml.example => app.yml
+4. 在[**终端/Terminal**]里面运行
+   `bin/bootstrap`
+5. 初始化DB
+   `rake db:create db:schema:load db:migrate`
+6. 跑一遍测试，不报错代表所有环境配置完成
+    `rake`
+
+## ruby依赖库
+
+0. bundler：Manage dependencies of an application
+   >ref: https://rubygems.org/gems/bundler
+1. pry: Ruby的debug工具。可能装了，如果没装：
+   `gem install pry`
+   >ref: https://github.com/pry/pry
+2. Debug Ruby用的一些玩意儿
+   0. debase
+      `gem install debase`
+      >ref: https://rubygems.org/gems/debase/
+   1. ruby-debug-ide
+      `gem install ruby-debug-ide`
+      >ref: https://rubygems.org/gems/ruby-debug-ide/
+      
+## 关于开发
+
+0. 教程
+    * [Ruby on Rails Guides](https://guides.rubyonrails.org/)
+      >官方文档，不过是英文的
+    * [菜鸟教程](http://www.runoob.com/ruby/ruby-tutorial.html)
+      >这里面从安装到基本语法都写的挺详细，而且是中文文档
