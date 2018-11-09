@@ -222,3 +222,6 @@
       >官方文档，不过是英文的
     * [菜鸟教程](http://www.runoob.com/ruby/ruby-tutorial.html)
       >这里面从安装到基本语法都写的挺详细，而且是中文文档
+1. CI/CD
+    * 持续集成持续部署（大概这样翻译） Continuous Integration/Continuous Deployment
+      >ref: https://blog.csdn.net/sinat_35930259/article/details/79429743
