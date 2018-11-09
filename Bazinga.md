@@ -180,26 +180,6 @@
            docker-machine version 0.15.0, build b48dc28d
         3. 然后在状态栏小鲸鱼里面装Kubernetes
 
-## 导入项目
-
-0. 找包括@yuan.he和@ben在内的各位大佬帮忙添加权限，包括而不仅限于
-    0. llspay
-    1. protos
-    2. googleapis
-1. 把llspay checkout 到本地
-    ```git clone git@git.llsapp.com:backend/llspay.git```
-2. 导入IDE/用IDE打开
-3. 进入llspay的项目目录，修改里面的配置文件
-   * 把/config one down dir里的*.yml.example复制一份
-   * 然后把副本都命名成*.yml
-     > app.yml.example => app.yml
-4. 在[**终端/Terminal**]里面运行
-   `bin/bootstrap`
-5. 初始化DB
-   `rake db:create db:schema:load db:migrate`
-6. 跑一遍测试，不报错代表所有环境配置完成
-    `rake`
-
 ## ruby依赖库
 
 0. bundler：Manage dependencies of an application
